@@ -2,6 +2,7 @@ from time import time
 from functools import wraps
 from types import FunctionType
 
+
 def profile_class(klass):
     for attr_name in klass.__dict__:
         attr = getattr(klass, attr_name)
@@ -38,6 +39,6 @@ def profile_function(func):
 def profile(obj):
     if isinstance(obj, FunctionType):
         obj = profile_function(obj)
-    else:
+    elif isinstance(obj, type):
         obj = profile_class(obj)
     return obj
