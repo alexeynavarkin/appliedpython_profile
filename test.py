@@ -8,7 +8,7 @@ class TestClass():
     def test_simple_load_func(self, n):
         i = 0
         while i < n:
-            i ** i
+            n ** n
             i += 1
 
     def test_recursive_func(self, n):
@@ -20,7 +20,7 @@ class TestClass():
 def test_simple_load_func(n):
     i = 0
     while i < n:
-        i**i
+        n ** n
         i += 1
 
 @profile
@@ -29,9 +29,9 @@ def test_recursive_func(n):
         test_recursive_func(n-1)
 
 
-test_simple_load_func(1000)
+test_simple_load_func(5000)
 test_recursive_func(5)
 
 t = TestClass()
-t.test_simple_load_func(1000)
+t.test_simple_load_func(5000)
 t.test_recursive_func(5)
