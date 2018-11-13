@@ -15,11 +15,11 @@ def profile_class(klass):
 def profile_method(method):
     @wraps(method)
     def wrapper(self, *args, **kwargs):
-        print(f"Started {type(self).__name__}.{method.__name__}")
+        print(f"`{type(self).__name__}.{method.__name__}` started")
         t_start = time()
         result = method(self, *args, **kwargs)
         t_stop = time()
-        print(f"Finished {type(self).__name__}.{method.__name__}, execution time: {t_stop - t_start}")
+        print(f"`{type(self).__name__}.{method.__name__}` finished in {round(t_stop - t_start, 2)}s")
         return result
     return wrapper
 
@@ -27,11 +27,11 @@ def profile_method(method):
 def profile_function(func):
     @wraps(func)
     def wrapper(self, *args, **kwargs):
-        print(f"Started {func.__name__}")
+        print(f"`{func.__name__}` started")
         t_start = time()
         result = func(self, *args, **kwargs)
         t_stop = time()
-        print(f"Finished {func.__name__}, execution time: {t_stop - t_start}")
+        print(f"`{func.__name__}` finished in {round(t_stop - t_start, 2)}s")
         return result
     return wrapper
 
